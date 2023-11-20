@@ -1,8 +1,8 @@
 package di
 
 import calculator.HashCalculator
-import calculator.algorithm.HashMd5Algorithm
+import calculator.algorithm.HashAlgorithm
 
-fun injectHashCalculator() = HashCalculator(injectHashMd5Algorithm())
+fun injectHashCalculator() = HashCalculator(injectHashAlgorithm())
 
-fun injectHashMd5Algorithm() = HashMd5Algorithm()
+fun injectHashAlgorithm() = HashAlgorithm()

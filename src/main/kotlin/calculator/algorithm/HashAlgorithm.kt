@@ -5,17 +5,19 @@ import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
 
-class HashMd5Algorithm {
+class HashAlgorithm {
 
     companion object {
-        private const val MD5 = "MD5"
+        const val MD5 = "MD5"
+        const val SHA_1 = "SHA-1"
+        const val SHA_256 = "SHA-256"
     }
 
-    fun getMd5(input: String): String {
+    fun parseAlgorithm(input: String, algorithm: String): String {
         return try {
 
             // Static getInstance method is called with hashing MD5
-            val md = MessageDigest.getInstance(MD5)
+            val md = MessageDigest.getInstance(algorithm)
 
             // digest() method is called to calculate message digest
             // of an input digest() return array of byte

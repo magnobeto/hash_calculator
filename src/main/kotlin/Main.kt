@@ -1,8 +1,8 @@
 import di.injectHashCalculator
+import di.injectUserInterface
 
 fun main() {
-    val calculator by lazy { injectHashCalculator() }
+    val userInterface by lazy { injectUserInterface() }
 
-    // TODO REFACTOR TO MAKE A INTERFACE ON TERMINAL LATER
-    calculator.getResult("Flamengo")
+    userInterface.presentation()
 }

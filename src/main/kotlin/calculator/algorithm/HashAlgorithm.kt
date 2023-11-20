@@ -7,12 +7,6 @@ import java.security.NoSuchAlgorithmException
 
 class HashAlgorithm {
 
-    companion object {
-        const val MD5 = "MD5"
-        const val SHA_1 = "SHA-1"
-        const val SHA_256 = "SHA-256"
-    }
-
     fun parseAlgorithm(input: String, algorithm: String): String {
         return try {
 

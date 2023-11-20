@@ -1,16 +1,13 @@
 package calculator
 
 import calculator.algorithm.HashAlgorithm
-import calculator.algorithm.HashAlgorithm.Companion.MD5
-import calculator.algorithm.HashAlgorithm.Companion.SHA_1
-import calculator.algorithm.HashAlgorithm.Companion.SHA_256
 import di.injectHashAlgorithm
+import utils.MD5
+import utils.RESULT_STRING
+import utils.SHA_1
+import utils.SHA_256
 
 class HashCalculator(private val hashAlgorithm: HashAlgorithm = injectHashAlgorithm()) {
-
-    companion object {
-        private const val RESULT_STRING = "The result was"
-    }
 
     fun getResult(input: String) = println("$RESULT_STRING ${algorithmMd5(input)}")
 

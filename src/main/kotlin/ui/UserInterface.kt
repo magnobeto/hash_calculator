@@ -8,26 +8,26 @@ import utils.SHA_256
 
 class UserInterface(private val calculator: HashCalculator = injectHashCalculator()) {
 
-    private lateinit var userInput: String
+    fun initInterface() = presentation()
 
-    fun presentation() {
+    private fun presentation() {
         println("-----Calculadora Hash------")
         println("Digite o algoritmo que deseja utilizar:")
         println("1 - MD5")
         println("2 - SHA1")
         println("3 - SHA256")
 
-        userInput = readlnOrNull() ?: ""
+        val userInput = readlnOrNull() ?: ""
 
         println("Você digitou: $userInput")
-        selectAlgorithm()
+        selectAlgorithm(userInput)
     }
 
-    private fun selectAlgorithm() {
+    private fun selectAlgorithm(userInput: String) {
         when {
-            userInput.contains(MD5, true) -> calculator.getResult(userInput)
-            userInput.contains(SHA_1, true) -> calculator.getResult(userInput)
-            userInput.contains(SHA_256, true) -> calculator.getResult(userInput)
+            userInput.contains(MD5, true) -> calculator.algorithmMd5(userInput)
+            userInput.contains(SHA_1, true) -> calculator.algorithmSha1(userInput)
+            userInput.contains(SHA_256, true) -> calculator.algorithmSha256(userInput)
         }
     }
 }

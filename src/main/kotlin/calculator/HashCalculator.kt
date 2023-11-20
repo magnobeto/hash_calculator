@@ -9,9 +9,7 @@ import utils.SHA_256
 
 class HashCalculator(private val hashAlgorithm: HashAlgorithm = injectHashAlgorithm()) {
 
-    fun getResult(input: String) = println("$RESULT_STRING ${algorithmMd5(input)}")
-
-    private fun algorithmMd5(input: String) = hashAlgorithm.parseAlgorithm(input, MD5)
-    private fun algorithmSha1(input: String) = hashAlgorithm.parseAlgorithm(input, SHA_1)
-    private fun algorithmSha256(input: String) = hashAlgorithm.parseAlgorithm(input, SHA_256)
+    fun algorithmMd5(input: String) = println("$RESULT_STRING ${hashAlgorithm.parseAlgorithm(input, MD5)}")
+    fun algorithmSha1(input: String) = println("$RESULT_STRING ${hashAlgorithm.parseAlgorithm(input, SHA_1)}")
+    fun algorithmSha256(input: String) = println("$RESULT_STRING ${hashAlgorithm.parseAlgorithm(input, SHA_256)}")
 }

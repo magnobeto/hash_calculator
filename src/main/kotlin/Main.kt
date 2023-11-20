@@ -1,4 +1,3 @@
-import di.injectHashCalculator
 import di.injectUserInterface
 
 fun main() {

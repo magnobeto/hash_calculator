@@ -20,7 +20,7 @@ name: Scan with Detekt
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   push:
-    branches: [ $default-branch, $protected-branches, "main" ]
+    branches: ["main"]
   pull_request:
     branches: [ $default-branch ]
   schedule:

@@ -15,25 +15,27 @@ class UserInterface(private val calculator: HashCalculator = injectHashCalculato
         println("2 - SHA1")
         println("3 - SHA256")
 
-        val userInput = readlnOrNull() ?: ""
-
-        println("Você digitou: $userInput")
-        selectAlgorithm(userInput)
+        val choosedAlgorithm = readlnOrNull() ?: ""
+        println("Você escolheu: $choosedAlgorithm")
+        println("Digite o texto que deseja calcular o hash:")
+        val inputText = readlnOrNull() ?: ""
+        println("Você digitou o texto: $inputText")
+        selectAlgorithm(choosedAlgorithm, inputText)
     }
 
-    private fun selectAlgorithm(userInput: String) {
+    private fun selectAlgorithm(choosedAlgorithm: String, inputText: String) {
         when {
-            regexMD5.matches(userInput)-> {
+            regexMD5.matches(choosedAlgorithm)-> {
                 println("$ALGORITHM_SELECTED $MD5")
-                calculator.algorithmMd5(userInput)
+                calculator.algorithmMd5(inputText)
             }
-            regexSHA1.matches(userInput) -> {
+            regexSHA1.matches(choosedAlgorithm) -> {
                 println("$ALGORITHM_SELECTED $SHA_1")
-                calculator.algorithmSha1(userInput)
+                calculator.algorithmSha1(inputText)
             }
-            regexSHA256.matches(userInput) -> {
+            regexSHA256.matches(choosedAlgorithm) -> {
                 println("$ALGORITHM_SELECTED $SHA_256")
-                calculator.algorithmSha256(userInput)
+                calculator.algorithmSha256(inputText)
             }
         }
     }

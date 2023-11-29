@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException
 
 class HashAlgorithm {
 
-    fun parseAlgorithm(input: String, algorithm: String): String {
+    fun transformInHash(input: String, algorithm: String): String {
         return try {
 
             // Static getInstance method is called with hashing MD5

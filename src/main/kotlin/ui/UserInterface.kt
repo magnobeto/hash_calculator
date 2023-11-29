@@ -6,10 +6,12 @@ import utils.*
 
 class UserInterface(private val calculator: HashCalculator = injectHashCalculator()) {
 
-    fun initInterface() = presentation()
+    fun initInterface() {
+        println("-----Calculadora Hash------")
+        presentation()
+    }
 
     private fun presentation() {
-        println("-----Calculadora Hash------")
         println("Digite o algoritmo que deseja utilizar:")
         println("1 - MD5")
         println("2 - SHA1")
@@ -36,6 +38,10 @@ class UserInterface(private val calculator: HashCalculator = injectHashCalculato
             regexSHA256.matches(choosedAlgorithm) -> {
                 println("$ALGORITHM_SELECTED $SHA_256")
                 calculator.algorithmSha256(inputText)
+            }
+            else -> {
+                println("Não escolheu um algoritmo válido, tente novamente.")
+                presentation()
             }
         }
     }

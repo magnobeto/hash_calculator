@@ -2,17 +2,11 @@ package ui
 
 import calculator.HashCalculator
 import di.injectHashCalculator
-import utils.ALGORITHM_SELECTED
-import utils.MD5
-import utils.SHA_1
-import utils.SHA_256
+import utils.*
 
 class UserInterface(private val calculator: HashCalculator = injectHashCalculator()) {
 
     fun initInterface() = presentation()
-    val regexMD5 = Regex("(MD5|1)", RegexOption.IGNORE_CASE)
-    val regexSHA1 = Regex("(SHA-1|SHA1|2)", RegexOption.IGNORE_CASE)
-    val regexSHA256 = Regex("(SHA-256|SHA256|3)", RegexOption.IGNORE_CASE)
 
     private fun presentation() {
         println("-----Calculadora Hash------")
